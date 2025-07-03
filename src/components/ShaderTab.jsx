@@ -7,11 +7,14 @@ export default function ShaderTab() {
     const animationRef = useRef(null);
 
     async function generateShader() {
-        const res = await fetch("http://localhost:4000/api/shader", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ prompt }),
-        });
+        const res = await fetch(
+            "https://elixir-backend-wwu6.onrender.com/api/shader",
+            {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ prompt }),
+            }
+        ).catch((err) => setShaderCode("Error: " + data.error));
         const data = await res.json();
 
         if (data.success) {
