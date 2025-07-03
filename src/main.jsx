@@ -4,9 +4,7 @@ import init from "calc_wasm";
 import "./index.css";
 import App from "./App.jsx";
 
-init().then(() => {
-    console.log("wasm loaded");
-});
+init();
 
 createRoot(document.getElementById("root")).render(
     <StrictMode>
